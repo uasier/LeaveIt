@@ -1,0 +1,19 @@
+  <!-- valine -->
+  {{- if .Site.Params.gitment.enable -}}
+  
+<div id="git-comments"></div>
+<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+<script src="https://jjeejj.github.io/js/gitment.js"></script>
+<script>
+  var gitment = new Gitment({
+    id: decodeURI(window.location.pathname),  // 可选, 默认为 location.href
+    owner: '{{ .Site.Params.gitment.githubId }}',
+    repo: '{{ .Site.Params.gitment.repoName }}',
+    oauth: {
+      client_id: '{{ .Site.Params.gitment.clientId }}',
+      client_secret: '{{ .Site.Params.gitment.clientSecret }}',
+    }
+  })
+  gitment.render('git-comments')
+</script>
+{{ end }}
