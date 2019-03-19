@@ -24,8 +24,7 @@
 {{ end }}
 
 {{ if eq ( getenv "HUGO_ENV" ) "production" }}
-  {{ template "_internal/google_analytics_async.html" . }}
-  {{ with .Site.Params.baiduAnalytics}}
+  {{ with .Site.Params.SEO.baiduAnalytics}}
     <script>
     var _hmt = _hmt || [];
     (function() {
